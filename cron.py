@@ -9,5 +9,5 @@ cron.remove_all()
 job  = cron.new(command='/home/pi/Assignment_One/write_to_db.py')
 
 #job settings
-job.minute.every(1)
+job.minute.every(30)
 cron.write()
