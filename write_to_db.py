@@ -6,13 +6,21 @@ dbname='assignmentone.db'
 # get data from SenseHat sensor
 def getSenseHatData():	
     sense = SenseHat()
+
     temp = sense.get_temperature()
+    t = os.popen('/opt/vc/bin/vcgencmd measure_temp')
+    cputemp = t.read()
+    cputemp = cputemp.replace('temp=','')
+    cputemp = cputemp.replace('\'C\n','')
+    cputemp = float(cputemp)
+    newtemp = temp - ((cputemp - temp) / 2)
+
     humidity = sense.get_humidity()
 
-    if temp is not None and humidity is not None:
-        temp = round(temp, 1)
+    if newtemp is not None and humidity is not None:
+        temp = round(newtemp, 1)
         humidity = round(humidity, 1)
-        logData (temp, humidity)
+        logData (newtemp, humidity)
 
 # log sensor data on database
 def logData (temp, humidity):	
