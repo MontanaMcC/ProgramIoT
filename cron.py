@@ -8,10 +8,13 @@ cron.remove_all()
 #add write_to_db cron and temp_notify cron
 writejob = cron.new(command='/home/pi/Assignment_One/write_to_db.py')
 notifyjob = cron.new(command='/home/pi/Assignment_One/temp_notify.py')
+greetingjob = cron.new(command='/home/pi/Assignment_One/greeting.py')
 
 #job settings
-writejob.hour.every(1)
+writejob.minute.every(59)
 writejob.enable()
-notifyjob.hour.every(1)
+notifyjob.minute.every(59)
 notifyjob.enable()
+greetingjob.minute.every(59)
+greetingjob.enable()
 cron.write()
