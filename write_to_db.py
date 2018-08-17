@@ -3,7 +3,7 @@ import sqlite3
 import os
 from sense_hat import SenseHat
 
-dbname='assignmentone.db'
+dbname='/home/pi/Assignment_One/assignmentone.db'
 
 # get data from SenseHat sensor
 def getSenseHatData():	

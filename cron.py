@@ -10,8 +10,8 @@ writejob = cron.new(command='/home/pi/Assignment_One/write_to_db.py')
 notifyjob = cron.new(command='/home/pi/Assignment_One/temp_notify.py')
 
 #job settings
-writejob.minute.every(30)
+writejob.hour.every(1)
 writejob.enable()
-notifyjob.minute.every(5)
+notifyjob.hour.every(1)
 notifyjob.enable()
 cron.write()
