@@ -1,7 +1,7 @@
 import sqlite3
 from sense_hat import SenseHat
 
-dbname='assignmentonebt.db'
+dbname='/home/pi/Assignment_One/assignmentonebt.db'
 
 def displayData():
     conn=sqlite3.connect(dbname)
